@@ -1,0 +1,306 @@
+* {
+  margin: 0%;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Manrope";
+}
+
+#app {
+  background-color: #111;
+  color: white;
+}
+
+#page1 {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1240px;
+  padding-top: 20px;
+}
+
+#navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #1b1b1b;
+  padding: 0 24px;
+  height: 56px;
+  border: 0.2px solid #3a3a3a;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.dot {
+  color: #f59e0b;
+}
+#navbar select {
+  background: #1a1a1a;
+  color: #d4d4d4;
+  border: 0.5px solid #2a2a2a;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 13px;
+  outline: none;
+}
+#navbar p {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: rgb(247, 170, 28);
+}
+
+#navbar-glow {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(134, 8, 252, 0.15) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition:
+    left 0.08s ease,
+    top 0.08s ease;
+  z-index: 0;
+}
+#navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #111;
+  padding: 0 24px;
+  height: 56px;
+  position: relative; /* ← required */
+  overflow: hidden; /* ← keeps glow inside navbar */
+}
+
+#navbar p {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  margin: 0;
+  position: relative; /* ← stays above glow */
+  z-index: 1;
+}
+
+.dot {
+  color: #f59e0b;
+}
+
+.date-controls {
+  display: flex;
+  gap: 8px;
+  position: relative; /* ← stays above glow */
+  z-index: 1;
+}
+
+#navbar select {
+  background: #1a1a1a;
+  color: #aaa;
+  border: 0.5px solid #2a2a2a;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 13px;
+  outline: none;
+}
+
+/* The glow div */
+#navbar-glow {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(11, 132, 245, 0.15) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition:
+    left 0.08s ease-out,
+    top 0.08s ease-out;
+  z-index: 0;
+}
+
+#mainText {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+}
+#heroText span {
+  font-family: "Source Serif";
+  font-style: italic;
+  color: #f59e0b;
+}
+
+#hero {
+  margin-top: 20px;
+  height: 100vh;
+  border: 1px solid #212121;
+  border-radius: 12px;
+}
+#hero {
+  padding: 40px 24px;
+  min-height: calc(100vh - 56px);
+  background: #111;
+}
+
+#task-grid {
+  background: #161616;
+  border: 0.5px solid #222;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Header Row */
+#grid-header {
+  display: flex;
+  align-items: center;
+  border-bottom: 0.5px solid #222;
+  padding: 12px 16px;
+  position: sticky;
+  top: 0;
+  background: #161616;
+  z-index: 2;
+}
+
+.task-label-header {
+  width: 180px;
+  min-width: 180px;
+  color: #555;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.days-header {
+  display: flex;
+  gap: 4px;
+  flex: 1;
+  overflow: hidden;
+}
+
+.day-label {
+  width: 28px;
+  min-width: 28px;
+  text-align: center;
+  font-size: 11px;
+  color: #444;
+}
+
+.day-label.today {
+  color: #f59e0b;
+  font-weight: 500;
+}
+
+/* Task Rows */
+.task-row {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  border-bottom: 0.5px solid #1d1d1d;
+  transition: background 0.15s;
+}
+
+.task-row:hover {
+  background: #1a1a1a;
+}
+
+.task-name {
+  width: 180px;
+  min-width: 180px;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #ccc;
+  font-size: 13px;
+  font-family: inherit;
+  cursor: text;
+}
+
+.task-name::placeholder {
+  color: #444;
+}
+
+.dots-container {
+  display: flex;
+  gap: 4px;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* The Dots */
+.dot {
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  border-radius: 6px;
+  background: #1f1f1f;
+  border: 0.5px solid #2a2a2a;
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    border-color 0.15s,
+    transform 0.1s;
+  position: relative;
+}
+
+.dot:hover {
+  background: #2a2a2a;
+  border-color: #3a3a3a;
+  transform: scale(1.1);
+}
+
+.dot.done {
+  background: #166534;
+  border-color: #15803d;
+}
+
+.dot.done:hover {
+  background: #15803d;
+}
+
+.dot.today-col {
+  border-color: #f59e0b44;
+}
+
+/* Delete button on row */
+.delete-row {
+  background: transparent;
+  border: none;
+  color: #333;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 0 0 0 10px;
+  line-height: 1;
+  transition: color 0.15s;
+}
+.delete-row:hover {
+  color: #e24b4a;
+}
+
+/* Add Task Button */
+#add-btn {
+  margin: 12px 16px;
+  background: transparent;
+  border: 0.5px dashed #2a2a2a;
+  border-radius: 8px;
+  color: #444;
+  font-size: 13px;
+  padding: 8px 16px;
+  cursor: pointer;
+  width: calc(100% - 32px);
+  text-align: left;
+  transition:
+    border-color 0.15s,
+    color 0.15s;
+  font-family: inherit;
+}
+
+#add-btn:hover {
+  border-color: #f59e0b55;
+  color: #f59e0b;
+}
