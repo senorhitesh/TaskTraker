@@ -10,6 +10,7 @@
   color: white;
   height: 100vh;
   position: relative;
+  z-index: 0;
 }
 
 #page1 {
@@ -172,7 +173,7 @@
     top 0.08s ease-out;
   z-index: 0;
 }
-#navbar select {
+/* #navbar select {
   background: rgba(255, 255, 255, 0.06);
   color: rgba(255, 255, 255, 0.75);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -185,7 +186,7 @@
   transition:
     background 0.2s,
     border-color 0.2s;
-}
+} */
 
 #navbar select:hover {
   background: rgba(255, 255, 255, 0.1);
@@ -212,6 +213,9 @@
   padding: 40px 24px;
   min-height: calc(100% - 56px);
   background: #111;
+  z-index: 5;
+  overflow: hidden;
+  position: relative;
 }
 
 #task-grid {
@@ -219,6 +223,7 @@
   border: 0.5px solid #222;
   border-radius: 12px;
   overflow: hidden;
+  z-index: 100;
 }
 
 /* Header Row */
@@ -230,7 +235,7 @@
   position: sticky;
   top: 0;
   background: #161616;
-  z-index: 2;
+  z-index: 100;
 }
 
 .task-label-header {
@@ -423,4 +428,41 @@
 .Btn:hover .svgContainer {
   background-color: rgba(156, 156, 156, 0.466);
   backdrop-filter: blur(4px);
+}
+#glow {
+  width: 100vw;
+  height: 30px;
+  background: radial-gradient(
+    ellipse 80% 60% at 50% 0%,
+    rgba(249, 115, 22, 0.25),
+    transparent 70%,
+    #ff0000
+  );
+  position: relative;
+  top: 0%;
+  inset: 0;
+  transform: translateX(-50%);
+  transform: translateY(-50%);
+}
+
+#app-glow {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(132, 0, 255, 0.15) 0%,
+    transparent 60%
+  );
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition:
+    left 0.08s ease,
+    top 0.08s ease;
+  z-index: 0;
+}
+#task-grid {
+  position: relative; /* ← must be relative or absolute */
+  z-index: 20; /* ← higher than glow */
 }

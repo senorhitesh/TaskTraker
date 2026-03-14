@@ -1,14 +1,14 @@
-const navbar = document.getElementById("navbar");
-const glow = document.getElementById("navbar-glow");
+const hero = document.getElementById("hero");
+const glow = document.getElementById("app-glow");
 
-navbar.addEventListener("mousemove", (e) => {
-  const rect = navbar.getBoundingClientRect();
-  glow.style.left = e.clientX - rect.left + "px";
-  glow.style.top = e.clientY - rect.top + "px";
+hero.addEventListener("mousemove", (e) => {
+  const rect = hero.getBoundingClientRect();
+  glow.style.left = e.clientX - rect.left + "px"; // ← subtract rect.left
+  glow.style.top = e.clientY - rect.top + "px"; // ← subtract rect.top
   glow.style.opacity = "1";
 });
 
-navbar.addEventListener("mouseleave", () => {
+hero.addEventListener("mouseleave", () => {
   glow.style.opacity = "0";
 });
 
