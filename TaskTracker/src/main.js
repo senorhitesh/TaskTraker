@@ -168,3 +168,56 @@ document.getElementById("year").addEventListener("change", refreshGrid);
 
 // Init
 refreshGrid();
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  const loaderMessages = [
+    "Loading your workspace...",
+    "Fetching your tasks...",
+    "Almost ready...",
+  ];
+
+  const loaderBar  = document.getElementById('loader-bar');
+  const loaderText = document.getElementById('loader-text');
+  const loader     = document.getElementById('loader');
+
+  // safety check — if any element missing, bail out
+  if (!loader || !loaderBar || !loaderText) return;
+
+  let progress = 0;
+  let msgIndex = 0;
+
+  const interval = setInterval(() => {
+    progress += 15 + Math.random() * 25;
+    if (progress > 100) progress = 100;
+
+    loaderBar.style.width = progress + '%';
+
+    if (progress > 30 && msgIndex === 0) {
+      msgIndex = 1;
+      loaderText.textContent = loaderMessages[1];
+    }
+    if (progress > 70 && msgIndex === 1) {
+      msgIndex = 2;
+      loaderText.textContent = loaderMessages[2];
+    }
+
+    if (progress >= 100) {
+      clearInterval(interval);
+      setTimeout(() => {
+        loader.classList.add('hidden');
+        setTimeout(() => {
+          loader.style.display = 'none';
+        }, 500);
+      }, 400);
+    }
+  }, 300);
+
+  // safety net — always hides after 4s
+  setTimeout(() => {
+    clearInterval(interval);
+    loader.classList.add('hidden');
+    setTimeout(() => { loader.style.display = 'none'; }, 500);
+  }, 4000);
+
+});
